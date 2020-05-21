@@ -1,0 +1,21 @@
+.welcome {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    margin: 20% 30%;
+    text-align: center;
+}
+
+.welcome h1 {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 45px;
+}
+header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("https://i.ytimg.com/vi/FHytoCvj90w/maxresdefault.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
