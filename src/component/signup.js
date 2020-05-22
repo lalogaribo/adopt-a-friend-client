@@ -4,7 +4,7 @@ import "../style/signup.css"
 export default class signUp extends Component {
     render (){
         return (
-        <header>
+        <header className="signup">
         <body>
         <div className="ui form">
           <form onSubmit={this.handleSubmit}>

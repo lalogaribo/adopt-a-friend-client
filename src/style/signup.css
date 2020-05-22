@@ -68,8 +68,8 @@ body {
     background: black;
 }
 
-header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("https://images.pexels.com/photos/164186/pexels-photo-164186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+.signup {
+    background: linear-gradient(rgba(0,0,0,.19), rgba(0,0,0,0.6)),url("https://images.pexels.com/photos/164186/pexels-photo-164186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     height: 100vh;
     background-size: cover;
     background-position: center center;
