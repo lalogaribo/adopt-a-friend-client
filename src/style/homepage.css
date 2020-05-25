@@ -1,10 +1,10 @@
 .welcome {
     position: absolute;
     width: 600px;
-    height: 300px;
+    height: 100px;
     margin: 20% 30%;
     text-align: center;
-}
+}   
 
 .welcome h1 {
     text-align: center;
@@ -12,9 +12,9 @@
     text-transform: uppercase;
     font-size: 45px;
 }
-header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("https://i.ytimg.com/vi/FHytoCvj90w/maxresdefault.jpg");
-    height: 100vh;
+.background {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("https://images.pexels.com/photos/551579/pexels-photo-551579.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    height: 100vh;  
     background-size: cover;
     background-position: center center;
     position: relative;

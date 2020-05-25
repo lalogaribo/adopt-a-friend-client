@@ -6,7 +6,7 @@ export default class NavbarPage extends Component {
 
     render() {
         return (
-        <header>
+        <header className="background">
             <div className="welcome">
                 <h1>Welcome to adopt a friend!</h1>
             </div>
