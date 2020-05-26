@@ -5,17 +5,6 @@ import "../style/createpet.css"
 export default class createShelter extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.target);
-        console.log(data);
-        // fetch("http://localhost:3001/api/v1/shelters/new"), {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: {
-
-        //     }
-        // }
     }
 
     render() {
