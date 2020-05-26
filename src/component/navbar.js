@@ -8,10 +8,23 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
 export default class NavbarPage extends Component {
+  loggedIn = () => {
+    return (
+      <>
+        <Link to="/login" className="nav-link">
+          Login
+        </Link>
+        <Link to="/signup" className="nav-link">
+          Sign Up
+        </Link>
+      </>
+    );
+  };
   render() {
+    let isLogged = localStorage.getItem("loggedIn");
+
     return (
       <Navbar bg="light" expand="lg">
-        {/* <Navbar.Brand href="#home">Adopt a friend</Navbar.Brand> */}
         <Link to="/" className="navbar-brand">
           Adopt a friend
         </Link>
@@ -24,18 +37,27 @@ export default class NavbarPage extends Component {
             <Link to="/pets" className="nav-link">
               All friends
             </Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/createPet">Create Pet</NavDropdown.Item>
-              <NavDropdown.Item href="/createShelter">Create Shelter </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
           </Nav>
           <Form inline>
-          <Link to="/login" className="nav-link">Login</Link>
-          <Link to="/signup" className="nav-link">Sign Up</Link>
+            {isLogged ? (
+              <>
+                <Link to="/logout" className="nav-link" onClick={this.logout}>
+                  Logout
+                </Link>
+
+                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/createPet">
+                    Create Pet
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/createShelter">
+                    Create Shelter{" "}
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : (
+              this.loggedIn()
+            )}
+
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
           </Form>
@@ -43,4 +65,9 @@ export default class NavbarPage extends Component {
       </Navbar>
     );
   }
+
+  logout = () => {
+    console.log("loged out");
+    localStorage.removeItem("loggedIn");
+  };
 }
