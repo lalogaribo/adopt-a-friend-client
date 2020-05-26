@@ -7,7 +7,7 @@ export default function ShelterItem({ shelter }) {
       <div className="card-body">
         <Link
           to={{
-            pathname: "/shelters/id",
+            pathname: `/shelters/${shelter.id}`,
             state: {
               shelter: shelter,
             },
