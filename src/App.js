@@ -6,24 +6,28 @@ import HomePage from "./component/homepage.js";
 import ShelterContainer from "./component/shelter/ShelterContainer";
 import ShelterInformation from "./component/shelter/ShelterInformation";
 import PetContainer from "./component/pet/PetContainer";
-import SignUp from "./component/signup.js"
-import CreateShelter from "./component/createshelter.js"
-import CreatePet from "./component/createpet.js"
-import Login from "./component/login.js"
+import SignUp from "./component/signup.js";
+import CreateShelter from "./component/createshelter.js";
+import CreatePet from "./component/createpet.js";
+import Login from "./component/login.js";
+import ShelterProfile from "./component/profile/ShelterProfile";
+import UserProfile from "./component/profile/UserProfile";
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <NavbarPage />
-        <Route path="/signup" component={SignUp}/>
+        <Route path="/signup" component={SignUp} />
         <Route path="/createShelter" component={CreateShelter} />
         <Route path="/createPet" component={CreatePet} />
         <Route path="/login" component={Login} />
         <Route path="/shelters" exact component={ShelterContainer} />
         <Route path="/shelters/:id" component={ShelterInformation} />
         <Route path="/pets" component={PetContainer} />
-         <Route path="/" exact component={HomePage} />
+        <Route path="/" exact component={HomePage} />
+        <Route path="/shelter_profile" component={ShelterProfile} />
+        <Route path="/user_profile" component={UserProfile} />
       </BrowserRouter>
     );
   }
