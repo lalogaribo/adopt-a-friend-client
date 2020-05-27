@@ -19,7 +19,7 @@ export default class PetContainer extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/api/v1/pets")
+    fetch("http://localhost:3001/api/v1/pets")
       .then((resp) => resp.json())
       .then((pets) => this.setState({ pets: pets.data }));
   }

@@ -164,13 +164,17 @@ export default class signUp extends Component {
                 {this.state.isShelter
                   ? this.shelterRegistration()
                   : this.userRegistration()}
-                  <div>
-                  <input type="checkbox"
-                  name="shelter"
-                  value={this.state.isShelter}
-                  onChange={this.handleShelterState}/>
-                <label htmlFor="shelter" className="txtb">I'm shelter</label>
-                  </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="shelter"
+                    value={this.state.isShelter}
+                    onChange={this.handleShelterState}
+                  />
+                  <label htmlFor="shelter" className="txtb">
+                    I'm shelter
+                  </label>
+                </div>
                 <input
                   type="submit"
                   className="signup-btn"
@@ -187,7 +191,7 @@ export default class signUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.isShelter) {
-      URL = "http://localhost:3000/api/v1/shelters";
+      URL = "http://localhost:3001/api/v1/shelters";
       fetch(URL, {
         method: "POST",
         credentials: "include",
