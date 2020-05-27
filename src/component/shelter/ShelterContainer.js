@@ -20,7 +20,7 @@ class ShelterContainer extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/api/v1/shelters")
+    fetch("http://localhost:3001/api/v1/shelters")
       .then((resp) => resp.json())
       .then((shelters) => {
         console.log(shelters);
