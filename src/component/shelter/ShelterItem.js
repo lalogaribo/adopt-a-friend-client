@@ -1,25 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Card from 'react-bootstrap/Card'
+import Button from "react-bootstrap/Button";
+
 
 export default function ShelterItem({ shelter }) {
-  return (
-    <div className="card">
-      <div className="card-body">
-        <Link
-          to={{
-            pathname: "/shelters/id",
+    return (
+      <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="https://images.pexels.com/photos/1521305/pexels-photo-1521305.jpeg" />
+      <Card.Body>
+        <Card.Title>{shelter.name}</Card.Title>
+        <Card.Text>
+          <p>Located - {shelter.location}</p>
+        </Card.Text>
+        <Link to={{pathname: `/shelters/${shelter.id}`,
             state: {
               shelter: shelter,
             },
           }}
-          className="card-title"
         >
-          {shelter.name}
+        Go To Shelter
         </Link>
-        <h6 className="card-subtitle mb-2 text-muted">
-          {shelter.location} - {shelter.phone_number}
-        </h6>
-      </div>
-    </div>
-  );
+      </Card.Body>
+    </Card>
+    )
+
 }
