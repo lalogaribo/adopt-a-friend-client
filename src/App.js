@@ -14,23 +14,57 @@ import ShelterProfile from "./component/profile/ShelterProfile";
 import UserProfile from "./component/profile/UserProfile";
 
 class App extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      shelter: {},
+      user: {},
+    };
+  }
   render() {
     return (
       <BrowserRouter>
-        <NavbarPage />
+        <NavbarPage
+          username={this.state.user.username}
+          name={this.state.shelter.name}
+        />
         <Route path="/signup" component={SignUp} />
         <Route path="/createShelter" component={CreateShelter} />
         <Route path="/createPet" component={CreatePet} />
-        <Route path="/login" component={Login} />
+        <Route
+          path="/login"
+          render={(props) => {
+            return (
+              <Login
+                getShelterData={this.getShelterData}
+                getUserData={this.getUserData}
+                {...props}
+              />
+            );
+          }}
+        />
         <Route path="/shelters" exact component={ShelterContainer} />
         <Route path="/shelters/:id" component={ShelterInformation} />
         <Route path="/pets" component={PetContainer} />
         <Route path="/" exact component={HomePage} />
-        <Route path="/shelter_profile" component={ShelterProfile} />
+        <Route
+          path="/shelter_profile"
+          render={() => {
+            return <ShelterProfile shelterInfo={this.state.shelter} />;
+          }}
+        />
         <Route path="/user_profile" component={UserProfile} />
       </BrowserRouter>
     );
   }
+
+  getShelterData = (info) => {
+    this.setState({ shelter: info });
+  };
+
+  getUserData = (info) => {
+    this.setState({ user: info });
+  };
 }
 
 export default App;

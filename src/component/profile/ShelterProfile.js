@@ -7,16 +7,22 @@ export default function ShelterProfile() {
       credentials: "include",
     })
       .then((resp) => resp.json())
-      .then((shelter) => {
-        console.log(shelter);
-        setShelterInfo(shelter.shelter);
+      .then((data) => {
+        console.log(data.data);
+        setShelterInfo(data.data);
       });
   }, []);
   return (
     <div>
-      <h1>{shelterInfo.username}'s shelter</h1>
-      <h3>{shelterInfo.email}</h3>
-      <p>{shelterInfo.location}</p>
+      {Object.keys(shelterInfo).length === 0 ? (
+        "Loading... Profile"
+      ) : (
+        <>
+          <h1>{shelterInfo.username}'s shelter</h1>
+          <h3>{shelterInfo.email}</h3>
+          <p>{shelterInfo.location}</p>
+        </>
+      )}
     </div>
   );
 }
