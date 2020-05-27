@@ -1,18 +1,23 @@
 import React from "react";
+import Card from 'react-bootstrap/Card'
+import "../../style/petcard.css"
 
 export default function PetItem({ pet }) {
   return (
-    <div className="card">
-      <div className="card-body">
-        <h2 className="card-title">{pet.name}</h2>
-        <h6 className="card-subtitle mb-2 text-muted">{pet.breed}</h6>
-        <p>{pet.animal_type}</p>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={`pet.picture_url`} />
+      <Card.Body>
+        <Card.Title>{pet.name}</Card.Title>
+        <Card.Text>
+          <p>{pet.breed}</p>
+          <p>{pet.animal_type}</p>
+        </Card.Text>
         <label>
           Friend status:{" "}
-          {pet.isAdopted ? "Already adopted :)" : "Ready for adoption ^^"}
-        </label>
-        {pet.isAdopted ? null : <button>Adopt Me</button>}
-      </div>
-    </div>
+           {pet.isAdopted ? "Already adopted :)" : "Ready for adoption ^^"}
+         </label>
+         {pet.isAdopted ? null : <button>Adopt Me</button>}
+      </Card.Body>
+    </Card>
   );
 }

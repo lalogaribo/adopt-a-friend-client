@@ -13,8 +13,7 @@ export default class createShelter extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state)
-        fetch('http://localhost:3000/api/v1/shelters', {
+        fetch("http://localhost:3000/api/v1/shelters", {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
