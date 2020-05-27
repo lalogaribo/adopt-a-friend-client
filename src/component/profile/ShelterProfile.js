@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PetItem from "../pet/PetItem";
 
 export default function ShelterProfile() {
   const [shelterInfo, setShelterInfo] = useState({});
@@ -8,7 +9,7 @@ export default function ShelterProfile() {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data.data);
+        console.log(data.data.pets);
         setShelterInfo(data.data);
       });
   }, []);
@@ -21,6 +22,10 @@ export default function ShelterProfile() {
           <h1>{shelterInfo.username}'s shelter</h1>
           <h3>{shelterInfo.email}</h3>
           <p>{shelterInfo.location}</p>
+          <h4>Current pets: {shelterInfo.pets.length}</h4>
+          {shelterInfo.pets.map((pet) => (
+            <PetItem key={pet.id} pet={pet} />
+          ))}
         </>
       )}
     </div>

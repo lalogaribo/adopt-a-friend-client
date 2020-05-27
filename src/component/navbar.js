@@ -47,7 +47,7 @@ export default class NavbarPage extends Component {
                   Logout
                 </Link>
 
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown title="Shelter Options" id="basic-nav-dropdown">
                   {isShelter ? (
                     <NavDropdown.Item href="/createPet">
                       Create Pet
