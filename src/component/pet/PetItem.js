@@ -1,6 +1,5 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
-import "../../style/petcard.css"
 
 export default function PetItem({ pet }) {
   return (
