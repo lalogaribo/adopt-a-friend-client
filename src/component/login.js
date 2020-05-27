@@ -84,10 +84,14 @@ export default class login extends Component {
         }),
       })
         .then((resp) => {
-          resp.json();
+          return resp.json();
         })
         .then((data) => {
+          this.props.getShelterData(data.data);
           localStorage.setItem("loggedIn", true);
+          localStorage.setItem("isShelter", true);
+          localStorage.setItem("shelter_id", data.data.id);
+
           this.props.history.push("/shelter_profile");
         });
     } else {
@@ -107,6 +111,7 @@ export default class login extends Component {
       })
         .then((resp) => resp.json())
         .then((data) => {
+          this.props.getUserData(data.data);
           localStorage.setItem("loggedIn", true);
           this.props.history.push("/user_profile");
         });

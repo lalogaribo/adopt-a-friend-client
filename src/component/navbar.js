@@ -22,6 +22,7 @@ export default class NavbarPage extends Component {
   };
   render() {
     let isLogged = localStorage.getItem("loggedIn");
+    let isShelter = localStorage.getItem("isShelter");
 
     return (
       <Navbar bg="light" expand="lg">
@@ -41,17 +42,17 @@ export default class NavbarPage extends Component {
           <Form inline>
             {isLogged ? (
               <>
+                {this.props.username}
                 <Link to="/logout" className="nav-link" onClick={this.logout}>
                   Logout
                 </Link>
 
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/createPet">
-                    Create Pet
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/createShelter">
-                    Create Shelter{" "}
-                  </NavDropdown.Item>
+                <NavDropdown title="Shelter Options" id="basic-nav-dropdown">
+                  {isShelter ? (
+                    <NavDropdown.Item href="/createPet">
+                      Create Pet
+                    </NavDropdown.Item>
+                  ) : null}
                 </NavDropdown>
               </>
             ) : (

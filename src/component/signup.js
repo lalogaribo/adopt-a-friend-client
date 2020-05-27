@@ -206,10 +206,13 @@ export default class signUp extends Component {
         }),
       })
         .then((resp) => {
-          resp.json();
+          return resp.json();
         })
         .then((data) => {
           localStorage.setItem("loggedIn", true);
+          localStorage.setItem("isShelter", true);
+          debugger;
+          localStorage.setItem("shelter_id", data.data.id);
           this.props.history.push("/shelter_profile");
         });
     } else {
