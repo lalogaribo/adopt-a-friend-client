@@ -11,10 +11,33 @@ export default class ShelterInformation extends React.Component {
   }
   componentDidMount() {
     const { id } = this.props.location.state.shelter;
-    fetch(`http://localhost:3000/api/v1/shelters/${id}/pets`)
+    fetch(`http://localhost:3001/api/v1/shelters/${id}/pets`)
       .then((resp) => resp.json())
-      .then((pets) => this.setState({ shelterPets: pets.data }));
+      .then((pets) => {console.log(pets)
+      this.setState({ shelterPets: pets.data })});
   }
+
+  handleClick = (pet) => {
+    fetch(`http://localhost:3001/api/v1/shelters/${pet.shelter_id}/pets/${pet.id}/adopt_me`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+          Accept: "application/json",
+      },
+      body: JSON.stringify({
+        is_adopted: true,
+      }),
+    }).then(resp => resp.json())
+    .then(p => {
+      console.log(p)
+      if(p.data){
+      let newPet = this.state.shelterPets.filter(pet => pet.id === p.data.id ? p.data : pet)
+      this.setState({shelterPets: newPet})
+      }
+    })
+
+  }
+
   render() {
     const {
       id,
@@ -23,7 +46,6 @@ export default class ShelterInformation extends React.Component {
       phone_number,
       email,
     } = this.props.location.state.shelter;
-    console.log(this.state);
 
     return (
       <div>
@@ -48,7 +70,7 @@ export default class ShelterInformation extends React.Component {
   </body>
         <hr />
         Available pets {this.state.shelterPets.length}
-        <PetList pets={this.state.shelterPets} />
+        <PetList pets={this.state.shelterPets} handleClick={this.handleClick}/>
       </div>
     );
   }
