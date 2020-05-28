@@ -8,11 +8,12 @@ export default class CreatePet extends Component {
       name: "",
       breed: "",
       animal_type: "",
+      picture_url: "",
     };
   }
 
   render() {
-    const { name, breed, animal_type } = this.state;
+    const { name, breed, animal_type, picture_url } = this.state;
     return (
       <header className="create-pet">
         <body>
@@ -42,6 +43,14 @@ export default class CreatePet extends Component {
                   className="txtb"
                   name="animal_type"
                   value={animal_type}
+                  onChange={this.onChangeText}
+                />
+                <input
+                  type="text"
+                  placeholder="Picture URL"
+                  className="txtb"
+                  name="picture_url"
+                  value={picture_url}
                   onChange={this.onChangeText}
                 />
                 <input
@@ -76,6 +85,7 @@ export default class CreatePet extends Component {
           name: this.state.name,
           breed: this.state.breed,
           animal_type: this.state.animal_type,
+          picture_url: this.state.picture_url
         },
       }),
     })

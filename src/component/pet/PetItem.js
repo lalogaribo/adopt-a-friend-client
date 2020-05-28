@@ -2,7 +2,6 @@ import React from "react";
 import Card from 'react-bootstrap/Card'
 
 export default function PetItem({ pet, handleClick}) {
-  console.log(pet)
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={pet.picture_url} />
