@@ -33,6 +33,7 @@ export default class ShelterInformation extends React.Component {
       if(p.data){
       let newPet = this.state.shelterPets.filter(pet => pet.id === p.data.id ? p.data : pet)
       this.setState({shelterPets: newPet})
+      window.location.reload();
       }
     })
 

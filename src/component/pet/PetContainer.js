@@ -21,17 +21,16 @@ export default class PetContainer extends Component {
       }),
     }).then(resp => resp.json())
     .then(p => {
-      console.log(p)
       if(p.data){
       let newPet = this.state.pets.filter(pet => pet.id === p.data.id ? p.data : pet)
       this.setState({pets: newPet})
+      console.log({pets: newPet})
       }
     })
-
+    window.location.reload();
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         all pets
