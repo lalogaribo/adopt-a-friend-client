@@ -1,10 +1,11 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
 
-export default function PetItem({ pet }) {
+export default function PetItem({ pet, handleClick}) {
+  console.log(pet)
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={`pet.picture_url`} />
+      <Card.Img variant="top" src={pet.picture_url} />
       <Card.Body>
         <Card.Title>{pet.name}</Card.Title>
         <Card.Text>
@@ -13,9 +14,9 @@ export default function PetItem({ pet }) {
         </Card.Text>
         <label>
           Friend status:{" "}
-           {pet.isAdopted ? "Already adopted :)" : "Ready for adoption ^^"}
+           {pet.is_adopted ? "Already adopted :)" : "Ready for adoption ^^"}
          </label>
-         {pet.isAdopted ? null : <button>Adopt Me</button>}
+         {!pet.is_adopted && <button onClick={ () => handleClick(pet)}>Adopt Me</button>}
       </Card.Body>
     </Card>
   );
